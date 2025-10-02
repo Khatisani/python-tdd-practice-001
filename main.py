@@ -31,8 +31,13 @@ implement the function below to :
     example: "aba" -> {"a": 2, "b": 1}
 """
 def count_letters(string):
-    #TODO implement here
-    return {}
+    if not isinstance(string, str):
+        raise TypeError("Enter a string")
+    number = {}
+    for char in string:
+        if char.isalpha():
+            number[char]= number.get(char,0) +1
+    return number
     
 """implement the function below to :
     return a list of sums of each consecutive pair in the list
