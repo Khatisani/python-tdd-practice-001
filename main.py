@@ -55,6 +55,10 @@ def sum_consecutives(s):
     """
     
 def count_unique(string):
-       
-    #TODO implement here
-    return 0
+    if not isinstance(string, str):
+        raise TypeError("Enter a string.")
+    
+    split_string= string.split()
+    new_string=set(split_string)
+    count= len(new_string)
+    return count
