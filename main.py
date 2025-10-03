@@ -45,8 +45,11 @@ def count_letters(string):
     """
     
 def sum_consecutives(s):
-    #TODO implement here
-    return []
+    sumlist=[]
+    first_second= len(s) -1
+    for i in range(first_second):
+        sumlist.append(s[i]+ s[i + 1])
+    return sumlist
     
 """implement the function below to :
     return the number of unique words in a string

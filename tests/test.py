@@ -1,6 +1,8 @@
 import unittest
 from main import count_letters
 from main import count_unique
+from main import sum_consecutives
+
 
 class Test_count_letters(unittest.TestCase):
     def test_normal_word(self):
@@ -48,7 +50,25 @@ class Test_count_unique(unittest.TestCase):
         with self.assertRaises(TypeError):
             count_unique(345)
     
+class Test_sum_consecutives(unittest.TestCase):
+    def test_normal(self):
+        self.assertEqual(sum_consecutives([1, 2, 3]), [3, 5])
+    
+    def test_one_number(self):
+        self.assertEqual(sum_consecutives([1]), [])
+
+    def test_empty_list(self):
+        self.assertEqual(sum_consecutives([]), [])
+
+    def test_negatives(self):
+        self.assertEqual(sum_consecutives([-1, -2, -3]), [-3, -5])
 
     
+
+
+
+
+
+
 if __name__ == "__main__":
     unittest.main()
