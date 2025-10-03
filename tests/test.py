@@ -1,5 +1,6 @@
 import unittest
 from main import count_letters
+from main import count_unique
 
 class Test_count_letters(unittest.TestCase):
     def test_normal_word(self):
@@ -27,7 +28,27 @@ class Test_count_letters(unittest.TestCase):
         with self.assertRaises(TypeError):
             count_letters(345)
 
+class Test_count_unique(unittest.TestCase):
+    def test_normal(self):
+        self.assertEqual(count_unique("hi hey hi"), 2)
+
+    def test_empty_string(self):
+        self.assertEqual(count_unique(" "), 0)
+
+    def test_one_word(self):
+        self.assertEqual(count_unique("hello"), 1)
+
+    def test_case_insesnitivity(self):
+        self.assertEqual(count_unique("Hi hey hi"), 3)
+
+    def test_number_string(self):
+        self.assertEqual(count_unique("345 hey 345"), 2)
+    
+    def test_not_a_string(self):
+        with self.assertRaises(TypeError):
+            count_unique(345)
     
 
+    
 if __name__ == "__main__":
     unittest.main()
