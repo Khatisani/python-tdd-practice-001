@@ -19,11 +19,15 @@ Attention: If the number """
 
 def increment_string(strng):
     if strng == "":
-        return "1"
-    
-    #TODO implement here
-    
-    return ""
+        return "1"    
+    letters= strng.rstrip('0123456789')
+    numbers= strng[len(letters):]
+    if numbers== "" :
+        return letters + "1"
+    increment= str(int(numbers)+ 1)
+    #for zeroes before a number
+    increment= increment.zfill(len(numbers))
+    return letters+increment
 
 """
 implement the function below to :
@@ -48,7 +52,7 @@ def sum_consecutives(s):
     sumlist=[]
     first_second= len(s) -1
     for i in range(first_second):
-        sumlist.append(s[i]+ s[i + 1])
+        sumlist.append(s[i]+ s[i+1])
     return sumlist
     
 """implement the function below to :

@@ -2,7 +2,7 @@ import unittest
 from main import count_letters
 from main import count_unique
 from main import sum_consecutives
-
+from main import increment_string
 
 class Test_count_letters(unittest.TestCase):
     def test_normal_word(self):
@@ -63,10 +63,19 @@ class Test_sum_consecutives(unittest.TestCase):
     def test_negatives(self):
         self.assertEqual(sum_consecutives([-1, -2, -3]), [-3, -5])
 
+
+class TestIncrementString(unittest.TestCase):
+    def test_no_number(self):
+        self.assertEqual(increment_string("foo"), "foo1")
+
+    def test_with_number(self):
+        self.assertEqual(increment_string("foo42"), "foo43")
+
+    def test_with_zeroes(self):
+        self.assertEqual(increment_string("foo0042"), "foo0043")
     
-
-
-
+    def test_with_9(self): 
+        self.assertEqual(increment_string("foo099"), "foo100")
 
 
 
